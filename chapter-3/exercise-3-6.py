@@ -34,11 +34,11 @@ day = int(input('Please enter the numerical vaule for a day:'))
 year = int(input('Please enter a year (last 2 digits):'))
 magic = day * month == year
 
-if 0 >= month or month <= 13:
+if 0 >= month or month >= 13:
     print('Invalid month!')
 if 0 >= day or day >= 32:
     print('Invalid day!')
-if 0 > year or year > 99:
+if 0 >= year or year > 99:
     print('Invalid year!')
 else:
     print('The date is:', format(month,'02d'),'/', format(day,'02d'),'/', format(year,'2d'))

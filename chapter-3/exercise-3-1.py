@@ -30,13 +30,9 @@ if DAY_OF_WEEK == 7:
 elif DAY_OF_WEEK > 7:
     print('ERROR, Please enter an integer from 1 to 7.')
 
-
 # Determine the value to assign to the day of the week.
 # use a set of if ... elif ... etc. statements to test the day of the week value.
 
-
-
 # use the final else to display an error message if the number is out of range.
-
 
 # display the name of the day on the screen.
