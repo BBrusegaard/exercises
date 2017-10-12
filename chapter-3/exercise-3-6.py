@@ -28,7 +28,6 @@
 
 # print message for the user
 print('A magic date is a date where the day multiplied by the month equals the year. Answer the following to find one.')
-
 month = int(input('Please enter the numerical value for a month:'))
 day = int(input('Please enter the numerical vaule for a day:'))
 year = int(input('Please enter a year (last 2 digits):'))

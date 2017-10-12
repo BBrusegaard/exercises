@@ -17,8 +17,6 @@ t3 = float(15*speed)
 # Calculate the distance the car will travel in
 # 6, 10, and 15 hours.
 
-
-
 # Print the results for all calculations.
 print('The car will travel' , format(t1, ".2f"), 'miles in 6 hours')
 print('The car will travel' , format(t2, ".2f"), 'miles in 10 hours')
