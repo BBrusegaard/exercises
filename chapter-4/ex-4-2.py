@@ -6,10 +6,8 @@
 # then displays a table with the results for each time. 
 
 # Declare a constant for the calories burned per minute.
-
 # Declare variables for calories burned and number of minutes.
 # initialize calories burned as a float and minutes as an integer
-
 
 # print the table header using two tabs between Minutes and Calories Burned
 # print a line under the header using underscores
@@ -21,4 +19,14 @@
     # calculate calories burned using the constant for calories burned per minute
 
     # display the minutes and calories burned using two tabs between the values
+CALORIES_BURNED_PER_MINUTE = 5.8
+calories_burned = float
+minutes = int
 
+print('Minutes      Calories Burned')
+print('____________________________')
+
+for minutes in range(1,11):
+    calories_burned = minutes*CALORIES_BURNED_PER_MINUTE 
+    print(minutes,'        ', (format(calories_burned, ".2f")))  
+    
