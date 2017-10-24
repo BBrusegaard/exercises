@@ -28,6 +28,6 @@ time = int(input('Enter the time traveled in hours:'))
 print('Hour     Distance')
 print('__________________')
 
-for x in range(time+1):
+for x in range(time + 1):
     distance = x * speed
     print(x, '       ', distance, 'mi')

@@ -26,5 +26,5 @@ print('Celsius       Fahrenheit')
 print('________________________')
 
 for x in range(0, MAX_CELSIUS+1):
-    fahrenheit = x*1.8 + 32
+    fahrenheit = x * 1.8 + 32
     print(x, '          ', format(fahrenheit, ".2f"))
