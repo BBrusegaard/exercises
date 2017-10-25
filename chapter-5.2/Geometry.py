@@ -1,3 +1,8 @@
+#Main
+    #Prompt
+    #Choose
+    #Display
+
 # This program allows the user to choose various geomtery calculations from a menu. 
 # This program imports the circle and rectangle modules.
 import circle

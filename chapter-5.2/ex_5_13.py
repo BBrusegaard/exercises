@@ -6,24 +6,20 @@
 # 	that returns the falling distance for that amount of time,
 # and displays the results as a table.
 
-
-
 # define the main function
 
     # define a local float variable to hold distance
-
-
+    
     # Set up results chart, printing time and falling distance separated by a tab
     # include a separator line made with a row of underscores
-
+#Time   Distance
+#_______________
     
     # loop through a range of time values (in seconds)
 
         # pass the time to a falling distance function and assign result to distance
 
 		# print the time and distance formatted to two places, separated by a tab
-
-
 
 # Define a function to calculate the falling distance for a time in seconds
 # The function accepts a time in seconds as a parameter,
@@ -36,11 +32,21 @@
 	
 	# return the falling distance
 
-
-
 # Call the main function to start the program
+from tables import print_two_column_header
+
+def main():
+    distance = 0.0
+    print_two_column_header("Time", "Distance")
+    global x
+    for x in range():
+        print(distance)
+        
+def falling_distance(time):
+    distance = 0.5 * 9.8 * time**2
+    return distance
 
 
-
-
+if __name__ == "__main__":
+    main()
 
