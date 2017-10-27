@@ -5,12 +5,9 @@
 # which it opens, reads line by line, and totals the numbers in a variable,
 # then displays the total on the screen.
 
-
-
 # Define the main function.
 
     # Declare a local string variable for line and two floats for total and current number
-    
 
     # Open numbers.txt file for reading
 
@@ -20,13 +17,24 @@
 
         # add it to total
         
-        
     # Close file
 
     # Display the total of the numbers in the file
 
-
-
 # Call the main function to start the program.
 
+def main():
+    line = ' '
+    total = 0.0
+    current_number = 0.0
+    
+    filename = open("numbers.txt",'r')
+    line = filename.readline()
+    while line != '':
+        current_number = int(line)
+        total += current_number
+        line = filename.readline()
+    filename.close()
+    print("Total: ", total)
 
+main()

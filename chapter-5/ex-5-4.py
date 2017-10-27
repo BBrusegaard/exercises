@@ -50,7 +50,7 @@ def main():
     monthly_loan = float(input("Enter cost of montly loan amount: $"))
     monthly_insurance = float(input("Enter cost of monthly insurance amount: $"))
     monthly_gas = float(input("Enter cost of monthly gas amount: $"))
-    monthly_oil = float(input("Enter cost of monthyly oil amount: $"))
+    monthly_oil = float(input("Enter cost of monthly oil amount: $"))
     monthly_tire_wear = float(input("Enter cost of monthly tire wear: $"))
     monthly_maintenance = float(input("Enter cost of monthly car maintenance: $"))
     
@@ -59,11 +59,11 @@ def main():
     
 def car_expenses(monthly_loan, monthly_insurance, monthly_gas, 
     monthly_oil, monthly_tire_wear, monthly_maintenance):
-        monthly_total = 0.0
-        monthly_total = (monthly_loan + monthly_insurance + monthly_gas + 
+    monthly_total = 0.0
+    monthly_total = (monthly_loan + monthly_insurance + monthly_gas + 
     monthly_oil + monthly_tire_wear + monthly_maintenance)
-        year_total = monthly_total * 12
-        print("The monthly total is: $", format(monthly_total, ".2f"))
-        print("The average predicted annual total is: $", format(year_total, ".2f"))
+    year_total = monthly_total * 12
+    print("The monthly total is: $", format(monthly_total, ".2f"))
+    print("The average predicted annual total is: $", format(year_total, ".2f"))
         
 main()
