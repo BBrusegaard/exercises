@@ -37,12 +37,13 @@ from tables import print_two_column_header
 
 def main():
     distance = 0.0
+    time = 0.0
     print_two_column_header("Time", "Distance")
     global x
-    for x in range():
-        print(distance)
+    for time in range(31):
+        print(time,'sec','  ',format(falling_distance(time, distance),'.2f'),'m')
         
-def falling_distance(time):
+def falling_distance(time, distance):
     distance = 0.5 * 9.8 * time**2
     return distance
 

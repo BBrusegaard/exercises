@@ -6,19 +6,13 @@
 # counts the number of odd and even results,
 # and displays the total of each.
 
-
-
 # To use the random integer function, import the random library
-
-
 
 # define the main function
 
     # define local int variable for number, odd and even totals
 
-
     # define a constant to hold how many numbers to compare (100)
-
 
     # loop through the range of numbers to compare
 
@@ -30,8 +24,6 @@
 
     # display the results on the screen
 
-
-
 # Define a function to check for even numbers
 # This function accepts one integer parameter,
 # uses the mod operater to see if can be evenly divided by two,
@@ -41,8 +33,13 @@
 
     # else return false
 
-
-
 # Call the main function to begin the program
+import random
 
-
+def main():
+    number = 0
+    odd = 0
+    even = 0
+    NUMBERS_TO_COMPARE = 0
+    while NUMBERS_TO_COMPARE < 0 or NUMBERS_TO_COMPARE > 100:
+        random.randint(0,100)
