@@ -9,9 +9,7 @@
 
     # Define local variables for line and filename (strings) and counter (int)
 
-    
     # Prompt the user for a file name
-
 
     # Open the specified file for reading
 
@@ -25,10 +23,19 @@
 
         # display the line (should be on same line as line number)
 
-
     # Close file
-
 
 # Call the main function to start the program
 
 
+def main():
+    line = ''
+    file_name = ''
+    counter = 0
+    file_name = input("Enter a file: ")
+    file = open(file_name, 'r')
+    for line in file:
+        counter += 1
+        line = line.strip('\n')
+        print(line, counter)
+    file.close()

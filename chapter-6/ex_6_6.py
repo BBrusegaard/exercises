@@ -9,7 +9,6 @@
 
     # Declare local float variables for number and total, and an integer counter
 
-    
     # Open numbers.txt file for reading
 
     # Iterate over the lines in the file
@@ -19,18 +18,22 @@
         # get a number from the current line
 
         # add the number to the total
-
         
     # Close file
 
-
     # Calculate average
 
-    
     # Display the average of the numbers in the file
-
-
 
 # Call the main function to start the program
 
+def main():
+    lines = [line.rstrip('\n') for line in open('numbers.txt')]
+    total = int
+    for x in lines:
+        total += int(x)
+    average = total / lines
+    average = format(average,'.2f')
+    print('The average is: ', average)
 
+main()

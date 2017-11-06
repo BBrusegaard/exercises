@@ -25,8 +25,8 @@
 
 def main():
     line = ' '
-    total = 0.0
-    current_number = 0.0
+    total = 0
+    current_number = 0
     
     filename = open("numbers.txt",'r')
     line = filename.readline()
