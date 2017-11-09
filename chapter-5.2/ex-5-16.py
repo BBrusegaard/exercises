@@ -35,6 +35,7 @@
 
 # Call the main function to begin the program
 import random
+import math
 
 def main():
     number = 0
@@ -42,4 +43,7 @@ def main():
     even = 0
     NUMBERS_TO_COMPARE = 0
     while NUMBERS_TO_COMPARE < 0 or NUMBERS_TO_COMPARE > 100:
-        random.randint(0,100)
+        number = random.randint(0,100)
+        
+def even_check(integer):
+     
