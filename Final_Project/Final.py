@@ -3,6 +3,12 @@
 # Randomized background of player which will grant them different "skills" i.e. More health, more damage, or starting weapon
 #
 # The introduction to the game is displayed to the player below in main function.
+
+# For tuesday, make flow chart
+# Can reference on pg.97 in textbook
+import time
+import random
+
 print('                            ┌------------------------┐')
 print('                            |         Incibo         |')
 print('                            └------------------------┘')
@@ -18,8 +24,14 @@ print('└----------------------------------------------------------------------
 
 START = 1
 QUIT = 2
-character_contents = [hiking shoes, faded blue jeans, white t-shirt, gray jacket, rifle, rifle bullet, 
-rifle bullet, rifle bullet]
+hiking_shoes = ''
+faded_blue_jeans = ''
+white_Tshirt = ''
+gray_jacket = ''
+rifle = ''
+rifle_bullet = ''
+combat_knife = ''
+character_contents = [hiking_shoes, faded_blue_jeans, white_Tshirt, gray_jacket, rifle, rifle_bullet, rifle_bullet, rifle_bullet]
 # The water and food variables will equal their numerical value for which I will recognize them by later, not how much
 # the player has in resources.
 water = 20
@@ -32,17 +44,20 @@ def main():
         try:
             choice = int(input('Enter your selection: '))
         except ValueError:
+            time.sleep(1)
             print('INVALID SELECTION!')
         if choice == QUIT:
+            time.sleep(1)
             print('Quitting game...')
             exit()
 # The player is prompted to enter their name which will be held in a variable
 # used to display their character's name throughout the game. Needs to be global.
         else:
+            time.sleep(1)
             user_name = str(input("Enter your name: "))
         last_chance_to_change_name_function(user_name)
         continue
-    chapter_1()
+    return user_name
 
 def display_menu():
     print('1) Start')
@@ -57,12 +72,17 @@ def last_chance_to_change_name_function(user_name):
     last_chance = ''
     while last_chance != N or last_chance != n:
         try:
+            time.sleep(1)
             last_chance = str(input('Are you sure? (y/n): '))
         except ValueError:
             print('Invalid Selection! Please enter "y" or "n" ')
             return last_chance_to_change_name_function(user_name)
         if last_chance == Y or last_chance == y:
+            print('')
+            time.sleep(2)
             print('Your name is ',user_name,'!')
+            time.sleep(2)
+            print('The game will begin in a few seconds...')
             return chapter_1()
         elif last_chance == N or last_chance == n:
             return user_name
@@ -71,6 +91,7 @@ def last_chance_to_change_name_function(user_name):
 # to the player and depending on whether they go right=1 or left=2, will determine the outcomes of later
 # events in the next chapters. 
 def chapter_1():
+    time.sleep(3)
     print('')
     print('┌-----------------------------------------------------------------------------------------------------┐')
     print('|You have just awoken from a long sleep...                                                            |')
@@ -103,6 +124,7 @@ def chapter_1():
     if right_left_choice == 2:
         return left_choice_path()
     if right_left_choice == 3:
+        time.sleep(1)
         print('Quitting game...')
         exit()
 
@@ -111,6 +133,7 @@ def chapter_1():
 # If they choose to go to the bridge, they will end up encoutering a zombie who has a 1/3 chance of killing them.
 # If they choose to continue on to the shelter, they will find food/water and gain rest. 
 def right_choice_path():
+    time.sleep(3)
     print('')
     print('┌-----------------------------------------------------------------------------------------------------┐')
     print('|You begin to head towards the right, hoping to get to the shelter off in the distance                |')
@@ -123,12 +146,13 @@ def right_choice_path():
     print('|What will you do next?                                                                               |')
     print('└-----------------------------------------------------------------------------------------------------┘')
     print('1) Continue heading to the shelter')
-    print('2) Go to the bridge and hide for shelter to wait out the storm')
+    print('2) Go underneath the bridge to wait out the storm')
     print('3) Quit game (your progress will NOT be saved)')
     try:
         shelter_or_bridge_choice = int(input("Enter your choice: "))
     except ValueError:
         print('')
+        time.sleep(1)
         print('Invalid Selection! Please enter an one of the displayed integers...')
         return right_choice_path()
     if shelter_or_bridge_choice == 1:
@@ -136,10 +160,12 @@ def right_choice_path():
     if shelter_or_bridge_choice == 2:
         return heading_to_bridge_choice()
     if shelter_or_bridge_choice == 3:
+        time.sleep(1)
         print('Quitting game...')
         exit()
         
 def heading_to_shelter_choice():
+    time.sleep(3)
     print('')
     print('┌-----------------------------------------------------------------------------------------------------┐')
     print('|You headed for the shelter running the enitre way, through the violent freezing rain and colder wind.|')
@@ -160,10 +186,14 @@ def heading_to_shelter_choice():
     try:
         reaction_to_figure = int(input('Enter your choice: '))
     except ValueError:
+        time.sleep(1)
         print('Invalid selection! Please enter an one of the displayed integers...')
         return heading_to_shelter_choice()
+# Option 1 is pulling out rifle and shooting figure
+# Create function to process the possible failure of the gun and different outcomes as a result of failure
     if reaction_to_figure == 1:
         shooting_figure()
+# Option 2 is asking them who they are and what they want
     if reaction_to_figure == 2:
         print('You ask the figure who they are and what they want. Then they respond that you had no right to')
         print('come into their home and take their resources. Based on the voice, you deduce it is a middle aged man.')
@@ -173,9 +203,12 @@ def heading_to_shelter_choice():
         try:
             possible_apology = int(input('Enter your choice: '))
         except ValueError:
-            print('Type "1" or "2" ! Not whatever you just typed...')
+            time.sleep(1)
+            print('Type "1" or "2"! Not whatever you just typed...')
             return possible_apology
         if possible_apology == 1:
+            time.sleep(2)
+            print('')
             print('You apologized to the man and he accepts it.')
             print('Then you have a long conversation with him about wanting to find your family.')
             print('The man says that there is rumored to be a safegaurded city that is free from all of the worldly')
@@ -183,8 +216,14 @@ def heading_to_shelter_choice():
             print('graciously accept. You pack some water and food and leave the shelter with the man.')
             character_contents.append(water*6)
             character_contents.append(food*6)
+            time.sleep(2)
+            print("You have gained 6 water bottles and 6 food items")
+            time.sleep(1)
+            print('You currently have these items: ',character_contents)
             return heading_to_incibo_with_bill()
         if possible_apology == 2:
+            time.sleep(2)
+            print('')
             print('I was starving and you had the resources I needed. I have no regrets...')
             print('Then the figure showed his face which you made out to be a middle aged man.')
             print('He then angrily charged at you with a knife and you lifted your rifle and shot him.')
@@ -194,14 +233,24 @@ def heading_to_shelter_choice():
             print('known as Incibo.')
             character_contents.append(water*4)
             character_contents.append(food*4)
-            character_contents.append(combat knife)
+            character_contents.remove(rifle_bullet)
+            character_contents.append(combat_knife)
+            time.sleep(2)
+            print("You have gained 4 water bottles and 4 food items and Bill's knife, but lost 1 of your 3 bullets")
+            time.sleep(1)
+            print("You currently have these items: ",character_contents)
             return heading_to_incibo_without_bill()
+# Option 3 is making a run for it
+    if reaction_to_figure == 3:
+        time.sleep(2)
+        print('')
+        
             
 def shooting_figure(user_name):
     for x in range(1):
         chance_to_hit = random.randint(1,3)
     if chance_to_hit == 1:
-        print('You missed your shot! Then the figure came at you with a knife and stabbed')
+        print('You missed your shot! The figure came at you with a knife and stabbed')
         print('you multiple times...')
         print('     ***YOU DIED***')
         print('Would you like to play again?')
@@ -210,11 +259,13 @@ def shooting_figure(user_name):
         try:
             quit_option = int(input('Enter your choice: '))
         except ValueError:
+            time.sleep(1)
             print('Invalid selection! Please enter one of the select integers...(1 or 2)')
             return quit_option
         if quit_option == 1:
             return main()
         elif quit_option == 2:
+            time.sleep(1)
             print('Quitting game...')
             exit()
     elif chance_to_hit == 2:
@@ -224,6 +275,11 @@ def shooting_figure(user_name):
         print('be others, so you must leave. You grab all the food and water you can then leave the shelter.')
         character_contents.append(water*3)
         character_contents.append(food*3)
+        character_contents.remove(rifle_bullet)
+        time.sleep(2)
+        print('You have gained 3 water bottles and 3 food items, but lost 1 of your 3 bullets')
+        time.sleep(1)
+        print('You currently have these items: ',character_contents)
         return escaping_shelter()
     elif chance_to_hit == 3:
         print('Your gun jammed and then the figure began to laugh. It was the laugh of a man...')
@@ -236,19 +292,25 @@ def shooting_figure(user_name):
         try:
             explanation = int(input('Enter your choice: '))
         except ValueError:
+            time.sleep(1)
             print('Invalid selection! Please enter an one of the displayed integers...')
             return shooting_figure()
         if explanation == 1:
             print('The figure accepted your explanation and responded that his name was Bill.')
             print('Bill: "What is your name?"')
-            print('My name is ',user_name,'.')
+            print('You: "My name is ',user_name,'".')
             print('Bill: "Its nice to meet you',user_name,' even though you took some of my food..."')
             print('Bill: "These lands are harsh. I do not blame you for what you did."')
             print('Bill: "But... I am afraid I cannot trust you. I am truly sorry for what comes next."')
-            print('Then Bill lunged at you and you quickly lifted your rifle up and shot him, your heart racing...')
+            print('Then Bill lunged at you with a knife and you quickly lifted your rifle up and shot him, your heart racing...')
             print('You gather your things and as much food and water as you can store and leave the shelter.')
             character_contents.append(water*3)
             character_contents.append(food*3)
+            character_contents.remove(rifle_bullet)
+            time.sleep(2)
+            print('You have gained 3 water bottles and 3 food items, but lost 1 of your 3 bullets')
+            time.sleep(1)
+            print('You currently have these items: ',character_contents)
             return escaping_shelter()
         if explanation == 2:
             print('You apologized but the figure did not move a muscle. Then you heard it mumble something lightly.')
@@ -259,10 +321,15 @@ def shooting_figure(user_name):
             print('left the shelter as quickly as you could...')
             character_contents.append(water*3)
             character_contents.append(food*3)
+            character_contents.remove(rifle_bullet)
+            time.sleep(2)
+            print('You have gained 3 water bottles and 3 food items, but lost 1 of your 3 bullets')
+            time.sleep(1)
+            print('You currently have these items: ',character_contents)
             return escaping_shelter()
         if explanation == 3:
             user_reason = input('Enter your reason: ')
-            print('The figure responded quickly with a very aggressive "I could give two shits what your reason was"')
+            print('The figure responded quickly with a very aggressive tone. "I could give two shits what your reason was"')
             print('"You stole from me and now you must pay for it..."')
             print('Then the figure ran at you with a knife. Luckily, you had your rifle ready and you shot the figure')
             print('before it could even touch you. When you looked down at the body, you saw the face of an older middle')
@@ -270,18 +337,40 @@ def shooting_figure(user_name):
             print('the shelter immediately...')
             character_contents.append(water*3)
             character_contents.append(food*3)
+            character_contents.remove(rifle_bullet)
+            time.sleep(2)
+            print('You have gained 3 water bottles and 3 food items, but lost 1 of your 3 bullets')
+            time.sleep(1)
+            print('You currently have these items: ',character_contents)
             return escaping_shelter()
         if explanation == 4:
+            time.sleep(1)
             print('Quitting game...')
             exit()
-            
+
+# In "heading to incibo with bill" function, player only gained 6 water and food, no bullet loss or knife gain
+# Also this is the only function with Bill still alive
+# *The player's avatar hasn't killed before and may now appear weaker in future encounters*
 def heading_to_incibo_with_bill():
+    time.sleep(3)
     
+
+# In "heading to incibo without bill" function, player gained 4 water and food, lost 1 bullet, and gained the knife
+# *The player's avatar may also now remind those in new encounters that he has killed successfully*
 def heading_to_incibo_without_bill():
-        
+    time.sleep(3)
+    print('')
+    print('┌-----------------------------------------------------------------------------------------------------┐')
+    print('|You walked on from the shelter for hours. You did not know how to feel about what you did but you    |')
+    print('|knew that perhaps the map you had found of Incibo would be worth a look. ')
+    print('└-----------------------------------------------------------------------------------------------------┘')
+    
 def escaping_shelter():
+        
+
     
 def heading_to_bridge_choice():
+    time.sleep(3)
     print('')
     print('┌-----------------------------------------------------------------------------------------------------┐')
     print('|You begin to run towards the bridge to get under it for shelter for the incoming storm. Once you     |')
@@ -300,13 +389,20 @@ def left_choice_path():
     print('└-----------------------------------------------------------------------------------------------------┘')
     
 # Remember to make and include a storm function that generates random amounts of rain in a range of 0 to 21!
-import random
-def storm():
+def random_weather():
     for x in range(1):
         rainfall = random.randint(0,21)
     if rainfall < 12:
+        time.sleep(2)
         print("It is beginning to lightly rain...")
+        time.sleep(60)
+        print('The rain has now stopped...')
     else:
+        time.sleep(2)
         print("It is beginning to rain heavily!")
+        time.sleep(180)
+        print('The rain is now dropping lightly...')
+        time.sleep(120)
+        print('The rain has now stopped...')
     
 main()
