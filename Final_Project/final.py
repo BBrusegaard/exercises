@@ -36,7 +36,7 @@ def main():
             time.sleep(1)
             print('INVALID SELECTION! Enter "1" or "2"')
             print('')
-            main()
+            return main()
         if choice == QUIT:
             print('')
             time.sleep(1)
@@ -49,12 +49,12 @@ def main():
             print('')
             print('Starting game...')
             time.sleep(0.5)
-            character_name()
+            return character_name()
         else:
             time.sleep(1)
             print('INVALID SELECTION! Enter "1" or "2"')
             print('')
-            main()
+            return main()
     
 
 def display_menu():
@@ -89,7 +89,7 @@ def character_name():
         except ValueError:
             print('')
             print('Invalid Selection! Please enter "y" or "n" ')
-            character_name()
+            return character_name()
         if last_chance == Y or last_chance == y:
             print('')
             time.sleep(1)
@@ -100,7 +100,7 @@ def character_name():
             print('')
             return chapter_1()
         elif last_chance == N or last_chance == n:
-            character_name()
+            return character_name()
     return user_name
 
 # Chapter 1 will be the function that will include the first real in-game choice that will be offered
@@ -142,10 +142,11 @@ def chapter_1():
     if right_left_choice == 1:
         print('')
         print('You chose to go to the right towards the shelter admist the rising storm')
-        #right_choice_path()
+        return right_choice_path()
     if right_left_choice == 2:
         print('')
         print('You chose to go to the left towards the bright forest')
+        return left_choice_path()
     if right_left_choice == 3:
         print('')
         print('You chose number 3 to quit the game...')
@@ -156,7 +157,8 @@ def chapter_1():
     else:
         print('')
         print("You didn't make a correct selection! Please enter an one of the displayed integers...")
-        return chapter_1()
+        return right_left_choice
+
 
 # The right choice path will develop into a completely different area and offer at least one other significant choice
 # that will impact the player's experience based on their choice of where to go next.
@@ -192,7 +194,7 @@ def right_choice_path():
     if shelter_or_bridge_choice == 1:
         print('')
         print("You chose to continue to head to the shelter")
-        heading_to_shelter_choice()
+        return heading_to_shelter_choice()
     if shelter_or_bridge_choice == 2:
         print('')
         print("You chose to go underneath the bridge to wait out the storm")
@@ -206,7 +208,7 @@ def right_choice_path():
         print('')
         time.sleep(1)
         print('Invalid Selection! Please enter an one of the displayed integers...')
-        right_choice_path()
+        return right_choice_path()
        
 def heading_to_shelter_choice():
     time.sleep(2)
@@ -237,13 +239,13 @@ def heading_to_shelter_choice():
         print('')
         time.sleep(1)
         print('Invalid selection! Please enter an one of the displayed integers...')
-        heading_to_shelter_choice()
+        return heading_to_shelter_choice()
 # Option 1 is pulling out rifle and shooting figure
 # Create function to process the possible failure of the gun and different outcomes as a result of failure
     if reaction_to_figure == 1:
         print('')
         print('You chose to try and shoot the figure')
-        shooting_figure()
+        return shooting_figure()
 # Option 2 is asking them who they are and what they want
     if reaction_to_figure == 2:
         print('')
@@ -262,7 +264,7 @@ def heading_to_shelter_choice():
             print('')
             time.sleep(1)
             print('Type "1" or "2"! Not whatever you just typed...')
-            possible_apology
+            return possible_apology
         if possible_apology == 1:
             print('')
             print('You chose to apologize...')
@@ -310,7 +312,7 @@ def heading_to_shelter_choice():
             print('')
             time.sleep(1)
             print('Type "1" or "2"! Not whatever you just typed...')
-            possible_apology
+            return possible_apology
 
 # Option 3 is making a run for it
     if reaction_to_figure == 3:
@@ -340,9 +342,9 @@ def heading_to_shelter_choice():
                 print('')
                 time.sleep(1)
                 print('Invalid selection! Please enter one of the select integers...(1 or 2)')
-                quit_option
+                return quit_option
         if quit_option == 1:
-            main()
+            return main()
         elif quit_option == 2:
             print('')
             time.sleep(1.5)
@@ -380,7 +382,7 @@ def heading_to_shelter_choice():
                 print('Invalid selection! Please enter one of the select integers...(1 or 2)')
                 return quit_option
         if quit_option == 1:
-            main()
+            return main()
         elif quit_option == 2:
             print('')
             time.sleep(1.5)
@@ -401,7 +403,7 @@ def heading_to_shelter_choice():
         time.sleep(1)
         print('')
         print('You did not make a correct selection...')
-        heading_to_shelter_choice()
+        return heading_to_shelter_choice()
         
             
 def shooting_figure():
@@ -467,7 +469,7 @@ def shooting_figure():
             time.sleep(1)
             print('')
             print('Invalid selection! Please enter an one of the displayed integers...')
-            shooting_figure()
+            return shooting_figure()
         if explanation == 1:
             print('The figure accepted your explanation and responded that his name was Bill.')
             print('Bill: "What is your name?"')
@@ -532,8 +534,26 @@ def shooting_figure():
             time.sleep(1)
             print('')
             print('You did not make a correct selection...')
-            shooting_figure()
+            return shooting_figure()
 
 # Scratch.py goes right here (entire thing)
+def left_choice_path():
+    print('')
+    print('                      ┌------------------------------------------------┐')
+    print("                      |                CHOOSING TO GO LEFT             |")
+    print('                      └------------------------------------------------┘')
+    print('┌-----------------------------------------------------------------------------------------------------┐')
+    print('| You go left towards the              |')
+    print('|             |')
+    print('||')
+    print('|  |')
+    print('|   |')
+    print('||')
+    print('|                                                |')
+    print('|                                                                             |')
+    print('└-----------------------------------------------------------------------------------------------------┘')
+    print('1) Continue heading to the shelter')
+    print('2) Go underneath the bridge to wait out the storm')
+    print('3) Quit game (your progress will NOT be saved)')
     
 main()
